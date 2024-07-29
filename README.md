@@ -1,66 +1,155 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Mini IMDb
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Mini IMDb é uma aplicação web inspirada no IMDb que permite aos usuários buscar filmes, ver detalhes como sinopse, elenco e avaliações, e deixar suas próprias avaliações e comentários. A aplicação utiliza Laravel para o backend e React para o frontend.
 
-## About Laravel
+## Tecnologias Utilizadas
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Backend**: Laravel
+- **Frontend**: React
+- **Autenticação**: JWT (JSON Web Tokens)
+- **Gerenciamento de Estado**: Context API
+- **Interações com API**: Axios 
+- **Banco de Dados**: MySQL
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Autenticação de usuários (registro e login)
+- Listagem de filmes
+- Visualização de detalhes de um filme
+- Avaliação de filmes (com pontuação e comentário)
+- Reações (like/dislike) em avaliações
+- Visualização da média de avaliações de um filme
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP >= 7.3
+- Composer
+- Node.js
+- NPM ou Yarn
+- MySQL
+- WampServer (ou similar)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Instalação
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Backend (Laravel)
 
-## Laravel Sponsors
+1. Clone o repositório:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    git clone https://github.com/seu-usuario/mini-imdb.git
+    cd mini-imdb
+    ```
 
-### Premium Partners
+2. Instale as dependências do PHP com o Composer:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```bash
+    composer install
+    ```
 
-## Contributing
+3. Configure o arquivo `.env`:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
-## Code of Conduct
+4. Configure a conexão com o banco de dados no arquivo `.env`.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Execute as migrações e seeds:
 
-## Security Vulnerabilities
+    ```bash
+    php artisan migrate --seed
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. Inicie o servidor de desenvolvimento:
 
-## License
+    ```bash
+    php artisan serve
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Frontend (React)
+
+1. Navegue para a pasta do frontend:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Instale as dependências do Node.js:
+
+    ```bash
+    npm install
+    # ou
+    yarn install
+    ```
+
+3. Inicie o servidor de desenvolvimento:
+
+    ```bash
+    npm start
+    # ou
+    yarn start
+    ```
+
+## Estrutura do Projeto
+
+### Backend (Laravel)
+
+- **Models**: Representações das tabelas do banco de dados.
+  - `User`
+  - `Filme`
+  - `Avaliacao`
+  - `AvaliacaoLike`
+- **Controllers**: Lógica de controle para lidar com as requisições.
+  - `AuthController`
+  - `FilmeController`
+  - `AvaliacaoController`
+- **Migrations**: Scripts para criação e atualização das tabelas do banco de dados.
+- **Routes**: Definições de rotas de API no arquivo `routes/api.php`.
+
+### Frontend (React)
+
+- **Components**: Componentes reutilizáveis da interface do usuário.
+  - `AdicionarFilme.js`
+  - `DetalhesFilme.js`
+  - `Home.js`
+  - `ListaFilmes.js`
+  - `Login.js`
+  - `PrivateRoute.js`
+  - `Register.js`
+- **Pages**: Páginas principais da aplicação.
+- **Services**: Serviços para interações com a API.
+  - `api.js`
+- **Context**: Context API para gerenciamento de estado global.
+
+## Rotas da API
+
+### Autenticação
+
+- `POST /api/register`: Registrar um novo usuário.
+- `POST /api/login`: Fazer login e obter o token JWT.
+
+### Filmes
+
+- `GET /api/filmes`: Listar todos os filmes.
+- `GET /api/filmes/{id}`: Obter detalhes de um filme específico.
+- `POST /api/filmes`: Adicionar um novo filme (autenticado).
+
+### Avaliações
+
+- `POST /api/filmes/{id}/avaliacoes`: Adicionar uma avaliação a um filme (autenticado).
+- `POST /api/avaliacoes/{id}/like`: Dar like em uma avaliação (autenticado).
+- `POST /api/avaliacoes/{id}/dislike`: Dar dislike em uma avaliação (autenticado).
+- `GET /api/avaliacoes/{id}`: Obter contagem de likes e dislikes de uma avaliação.
+
+## Contribuindo
+
+Se você deseja contribuir com o projeto, por favor, abra uma issue ou faça um fork do repositório e envie um pull request com suas alterações.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+Para mais informações, entre em contato através do email: [seu-email@exemplo.com](mailto:seu-email@exemplo.com).

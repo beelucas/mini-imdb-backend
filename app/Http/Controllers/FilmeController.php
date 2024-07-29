@@ -21,11 +21,16 @@ class FilmeController extends Controller
     {
         try {
             $filme = Filme::with('avaliacoes.user')->findOrFail($id);
-            return response()->json($filme);
+            $mediaAvaliacao = $filme->avaliacoes->avg('pontuacao');
+            return response()->json([
+                'filme' => $filme,
+                'mediaAvaliacao' => $mediaAvaliacao
+            ]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 404);
         }
     }
+
 
     public function store(Request $request)
     {
