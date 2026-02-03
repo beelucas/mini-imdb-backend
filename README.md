@@ -146,10 +146,6 @@ Mini IMDb é uma aplicação web inspirada no IMDb que permite aos usuários bus
 
 Se você deseja contribuir com o projeto, por favor, abra uma issue ou faça um fork do repositório e envie um pull request com suas alterações.
 
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ## Contato
 
-Para mais informações, entre em contato através do email: [seu-email@exemplo.com](mailto:seu-email@exemplo.com).
+Para mais informações, entre em contato através do email: [bee.lucasmlb@gmail.com](mailto:bee.lucasmlb@gmail.com).
